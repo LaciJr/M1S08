@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Resumo from './App';
+import Repositorio from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Resumo />
+    <Repositorio />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Resumo() {
+function Repositorio() {
   return (
-    <div>
-      <h1>GitHub Profile</h1>
-      <img src='https://github.com/LaciJr.png' alt='github LaciJr'></img>
-    </div>
+    <article>
+      <h3>GitHub</h3>
+      <span>Projeto em destaque!!</span>
+      <p>Projeto 1</p>
+    </article>
   );
 }
 
-export default Resumo;
+export default Repositorio;
