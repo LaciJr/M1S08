@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function Resumo() {
   return (
     <div>
-      <h1>Olá, portfolio!</h1>
+      <h1>GitHub Profile</h1>
+      <img src='https://github.com/LaciJr.png' alt='github LaciJr'></img>
     </div>
   );
 }
 
-export default App;
+export default Resumo;
