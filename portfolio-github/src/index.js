@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Repositorio from './App';
+import { Repositorio, App, Resumo } from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <App />
+    <Resumo />
     <Repositorio />
   </React.StrictMode>,
   document.getElementById('root')
