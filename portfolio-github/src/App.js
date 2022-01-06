@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Resumo() {
+export function App() {
+  return (
+    <div>
+      <h1>Olá, portfolio!</h1>
+    </div>
+  );
+}
+
+export function Resumo() {
   return (
     <div>
       <h1>GitHub Profile</h1>
@@ -9,5 +17,3 @@ function Resumo() {
     </div>
   );
 }
-
-export default Resumo;
