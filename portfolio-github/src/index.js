@@ -8,7 +8,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     <Resumo name={"Laci Jr"} imagem={"https://avatars.githubusercontent.com/u/93396326?v=4"}/>
-    <Repositorio />
+    <Repositorio titulo={"Github"} descricao={"Projeto 1"} destacar/>
   </React.StrictMode>,
   document.getElementById('root')
 );

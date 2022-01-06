@@ -23,12 +23,18 @@ Resumo.propTypes = {
   imagem: PropTypes.string.isRequired,
 }
 
-export function Repositorio() {
+export function Repositorio(props) {
   return (
     <article>
-      <h3>GitHub</h3>
+      <h3>{props.titulo}</h3>
       <span>Projeto em destaque!!</span>
-      <p>Projeto 1</p>
+      <p>{props.descricao}</p>
     </article>
   );
+}
+
+Repositorio.propTypes = {
+  titulo: PropTypes.string.isRequired,
+  descricao: PropTypes.string,
+  destacar: PropTypes.bool,
 }
