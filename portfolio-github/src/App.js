@@ -9,7 +9,7 @@ function App() {
   lista_repositorios[5] = {id: 5, titulo: "Título do quinto item", descricao: "Descrição do quinto item"}
   return (
     <div>
-      <h1>Olá, portfolio!</h1>
+      <h1>Meu portfólio Github!</h1>
       {
       lista_repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
         lista_repositorios.map((valor) => (
