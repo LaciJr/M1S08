@@ -1,24 +1,35 @@
-import './App.css';
-
-function App() {
-  const lista_repositorios = [];
-  lista_repositorios[1] = {id: 1, titulo: "Título do primeiro item", descricao: "Descrição do primeiro item"}
-  lista_repositorios[2] = {id: 2, titulo: "Título do segundo item", descricao: "Descrição do segundo item"}
-  lista_repositorios[3] = {id: 3, titulo: "Título do terceiro item", descricao: "Descrição do terceiro item"}
-  lista_repositorios[4] = {id: 4, titulo: "Título do quarto item", descricao: "Descrição do quarto item"}
-  lista_repositorios[5] = {id: 5, titulo: "Título do quinto item", descricao: "Descrição do quinto item"}
+import PropTypes from 'prop-types'
+import styles from './App.module.css';
+export function Resumo(props) {
   return (
-    <div>
-      <h1>Meu portfólio Github!</h1>
-      {
-      lista_repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
-        lista_repositorios.map((valor) => (
-          <p key={valor.id}>{valor.id} - {valor.titulo} - {valor.descricao}</p>
-        ))
-      )
-      }
+    <div className={styles.card}>
+      <h1>{props.name} profile</h1>
+      <img src={props.imagem} alt={props.name}></img>
     </div>
   );
 }
 
-export default App;
+Resumo.propTypes = {
+  name: PropTypes.string.isRequired,
+  imagem: PropTypes.string.isRequired,
+}
+export function Repositorio(props) {
+
+  return (
+    <div className={styles.card}>
+      <h2>Meu portfólio Github!</h2>
+      <container className={styles.container_projetoTitulo}>
+      <h3 className={styles.projeto_info}>Projeto 1</h3>
+      <p className={styles.projeto_info}>Descrição do Projeto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </container>
+      <br></br>
+      {props.destacar === true ? <span>Projeto em destaque!!</span> : null}
+    </div>
+  );
+}
+
+Repositorio.propTypes = {
+  titulo: PropTypes.string.isRequired,
+  descricao: PropTypes.string,
+  destacar: PropTypes.bool,
+}

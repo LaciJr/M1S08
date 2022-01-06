@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Repositorio, Resumo} from './App.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Resumo name='Laci Jr' imagem='https://github.com/LaciJr.png'/>
+    <Repositorio destacar />
   </React.StrictMode>,
   document.getElementById('root')
 );
