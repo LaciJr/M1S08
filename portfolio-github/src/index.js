@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Resumo />
+    <Resumo name={"Laci Jr"} imagem={"https://avatars.githubusercontent.com/u/93396326?v=4"}/>
     <Repositorio />
   </React.StrictMode>,
   document.getElementById('root')
