@@ -27,7 +27,7 @@ export function Repositorio(props) {
   return (
     <article>
       <h3>{props.titulo}</h3>
-      <span>Projeto em destaque!!</span>
+      {props.destacar === true ? <span>Projeto em destaque!!</span> : null}
       <p>{props.descricao}</p>
     </article>
   );
