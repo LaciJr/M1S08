@@ -1,0 +1,32 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  border: 2px solid gray;
+  padding: 5px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.container_projeto {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projeto_info {
+  max-width: 50%;
+}
+
+.projeto_titulo {
+  margin-bottom: 2px;
+}
+
+.destacar {
+  border-color: orange;
+  background-color: rgb(241, 224, 187);
+}
+
+span {
+  color: orange;
+}
