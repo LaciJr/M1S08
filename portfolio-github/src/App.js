@@ -32,7 +32,5 @@ export function Repositorio(props) {
 }
 
 Repositorio.propTypes = {
-  titulo: PropTypes.string.isRequired,
-  descricao: PropTypes.string,
   destacar: PropTypes.bool,
 }
