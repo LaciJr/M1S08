@@ -21,3 +21,12 @@
 .projeto_titulo {
   margin-bottom: 2px;
 }
+
+.destacar {
+  border-color: orange;
+  background-color: rgb(241, 224, 187);
+}
+
+span {
+  color: orange;
+}

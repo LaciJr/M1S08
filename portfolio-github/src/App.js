@@ -14,9 +14,8 @@ Resumo.propTypes = {
   imagem: PropTypes.string.isRequired,
 }
 export function Repositorio(props) {
-
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${props.destacar ? styles.destacar : ''}`}>
       <h2>Meu portfólio Github!</h2>
       <container className={styles.container_projeto}>
       <div  className={styles.projeto_info}>
