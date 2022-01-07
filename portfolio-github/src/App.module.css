@@ -9,11 +9,15 @@
   margin: 5px;
 }
 
-.container_projetoTitulo {
+.container_projeto {
   display: flex;
   justify-content: space-between;
 }
 
 .projeto_info {
   max-width: 50%;
+}
+
+.projeto_titulo {
+  margin-bottom: 2px;
 }

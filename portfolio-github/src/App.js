@@ -18,9 +18,9 @@ export function Repositorio(props) {
   return (
     <div className={styles.card}>
       <h2>Meu portfólio Github!</h2>
-      <container className={styles.container_projetoTitulo}>
+      <container className={styles.container_projeto}>
       <div  className={styles.projeto_info}>
-      <h3>Projeto 1</h3>
+      <h3 className={styles.projeto_titulo}>Projeto 1</h3>
       {props.destacar === true ? <span>Em destaque!!</span> : null}
       </div>
       <div  className={styles.projeto_info}>
