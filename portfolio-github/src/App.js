@@ -19,11 +19,14 @@ export function Repositorio(props) {
     <div className={styles.card}>
       <h2>Meu portfólio Github!</h2>
       <container className={styles.container_projetoTitulo}>
-      <h3 className={styles.projeto_info}>Projeto 1</h3>
-      <p className={styles.projeto_info}>Descrição do Projeto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div  className={styles.projeto_info}>
+      <h3>Projeto 1</h3>
+      {props.destacar === true ? <span>Em destaque!!</span> : null}
+      </div>
+      <div  className={styles.projeto_info}>
+      <p>Descrição do Projeto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
       </container>
-      <br></br>
-      {props.destacar === true ? <span>Projeto em destaque!!</span> : null}
     </div>
   );
 }
