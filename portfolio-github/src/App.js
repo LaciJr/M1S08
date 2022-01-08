@@ -11,6 +11,7 @@ lista_repositorios[5] = {id: 5, titulo: "Título do quinto item", descricao: "De
 
 export function App() {
   const [repositorios, setRepositorio] = useState(lista_repositorios);
+  const [idSelecionado, setId] = useState(2)
   return (
     <section>
       <h1>Meu portfólio Github!</h1>
@@ -18,7 +19,7 @@ export function App() {
       {
       repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
         repositorios.map((valor) => (
-          <Repositorio destacar={valor.id === 1 ? true : false} titulo={`${valor.titulo}`} descricao={`${valor.descricao}`}/>
+          <Repositorio destacar={valor.id === idSelecionado} titulo={`${valor.titulo}`} descricao={`${valor.descricao}`}/>
         ))
       )
       }
