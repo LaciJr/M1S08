@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
 
 const lista_repositorios = [];
@@ -12,6 +12,15 @@ lista_repositorios[5] = {id: 5, titulo: "Título do quinto item", descricao: "De
 export function App() {
   const [repositorios, setRepositorio] = useState(lista_repositorios);
   const [idSelecionado, setId] = useState(2)
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/LaciJr/repos`)
+    .then((resposta) => resposta.json())
+    .then((resultado) => {
+      console.log(resultado);
+    })
+  })
+  
   return (
     <section>
       <h1>Meu portfólio Github!</h1>
