@@ -25,16 +25,20 @@ export function App() {
     })
   },[])
 
-  function handleNomeUsuario(valor) {
+  const handleNomeUsuario = (valor) => {
     setNomeUsuario(valor);
   }
   
+  const handleBuscar = () => {
+    console.log('Buscando...');
+  }
+
   return (
     <section>
       <h1>Meu portfólio Github!</h1>
       <Resumo name='Laci Jr' imagem='https://github.com/LaciJr.png'/>
       <input type="text" onChange={event => handleNomeUsuario(event.target.value)} value={nomeUsuario}/>
-      <button>Buscar</button>
+      <button onClick={handleBuscar}>Buscar</button>
       {
       repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
         repositorios.map((valor) => (
