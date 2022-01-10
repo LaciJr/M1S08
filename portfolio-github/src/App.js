@@ -1,22 +1,46 @@
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
+import { mapToRepoObject } from './data/data-utils';
 
 const lista_repositorios = [];
-  lista_repositorios[1] = {id: 1, titulo: "Título do primeiro item", descricao: "Descrição do primeiro item"};
-  lista_repositorios[2] = {id: 2, titulo: "Título do segundo item", descricao: "Descrição do segundo item"};
-  lista_repositorios[3] = {id: 3, titulo: "Título do terceiro item", descricao: "Descrição do terceiro item"};
-  lista_repositorios[4] = {id: 4, titulo: "Título do quarto item", descricao: "Descrição do quarto item"};
-  lista_repositorios[5] = {id: 5, titulo: "Título do quinto item", descricao: "Descrição do quinto item"};
 
 export function App() {
+  const [repositorios, setRepositorio] = useState(lista_repositorios);
+  const [idSelecionado, setId] = useState(2);
+  const [nomeUsuario, setNomeUsuario] = useState('LaciJr');
+
+  useEffect(() => {
+    fetchDadosDoUsuario();
+  },[])
+
+  const handleNomeUsuario = (valor) => {
+    setNomeUsuario(valor);
+  }
+  
+  const handleBuscar = () => {
+    fetchDadosDoUsuario();
+  }
+
+  const fetchDadosDoUsuario = () => {
+    fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
+    .then((resposta) => resposta.json())
+    .then((resultado) => {
+      const repoResultado = mapToRepoObject(resultado);
+      setRepositorio(repoResultado);
+    })
+  }
+
   return (
     <section>
       <h1>Meu portfólio Github!</h1>
-      <Resumo name='Laci Jr' imagem='https://github.com/LaciJr.png'/>
+      <Resumo name={`${nomeUsuario}`} imagem={`https://github.com/${nomeUsuario}.png`}/>
+      <input type="text" onChange={event => handleNomeUsuario(event.target.value)} value={nomeUsuario}/>
+      <button onClick={handleBuscar}>Buscar</button>
       {
-      lista_repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
-        lista_repositorios.map((valor) => (
-          <Repositorio destacar={valor.id === 1 ? true : false} titulo={`${valor.titulo}`} descricao={`${valor.descricao}`}/>
+      repositorios.length === 0 ? <p>Nenhum repositório disponível.</p> : (
+        repositorios.map((valor) => (
+          <Repositorio clickDestaque={() => {setId(valor.id)}} destacar={valor.id === idSelecionado} titulo={`${valor.titulo}`} descricao={`${valor.descricao}`}/>
         ))
       )
       }
@@ -41,7 +65,7 @@ Resumo.propTypes = {
 function Repositorio(props) {
 
   return (
-      <container className={`${styles.container_projeto} ${styles.card} ${props.destacar ? styles.destacar : ''}` }>
+      <container onClick={props.clickDestaque} className={`${styles.container_projeto} ${styles.card} ${props.destacar ? styles.destacar : ''}` }>
       <div  className={styles.projeto_info}>
       <h3 className={styles.projeto_titulo}>{props.titulo}</h3>
       {props.destacar === true ? <span>Em destaque!!</span> : null}
@@ -57,4 +81,5 @@ Repositorio.propTypes = {
   titulo: PropTypes.string.isRequired,
   descricao: PropTypes.string.isRequired,
   destacar: PropTypes.bool,
+  clickDestaque: PropTypes.func
 }
