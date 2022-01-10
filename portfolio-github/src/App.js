@@ -13,16 +13,10 @@ lista_repositorios[4] = {id: 5, titulo: "Título do quinto item", descricao: "De
 export function App() {
   const [repositorios, setRepositorio] = useState(lista_repositorios);
   const [idSelecionado, setId] = useState(2);
-  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [nomeUsuario, setNomeUsuario] = useState('LaciJr');
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/LaciJr/repos`)
-    .then((resposta) => resposta.json())
-    .then((resultado) => {
-      const repoResultado = mapToRepoObject(resultado);
-      setRepositorio(repoResultado);
-      setId(repoResultado[0].id);
-    })
+    fetchDadosDoUsuario();
   },[])
 
   const handleNomeUsuario = (valor) => {
@@ -30,7 +24,16 @@ export function App() {
   }
   
   const handleBuscar = () => {
-    console.log('Buscando...');
+    fetchDadosDoUsuario();
+  }
+
+  const fetchDadosDoUsuario = () => {
+    fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
+    .then((resposta) => resposta.json())
+    .then((resultado) => {
+      const repoResultado = mapToRepoObject(resultado);
+      setRepositorio(repoResultado);
+    })
   }
 
   return (
