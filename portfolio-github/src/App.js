@@ -22,8 +22,8 @@ export function App() {
     fetchDadosDoUsuario();
   }
 
-  const fetchDadosDoUsuario = () => {
-    fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
+  const fetchDadosDoUsuario = async () => {
+    await fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
     .then((resposta) => resposta.json())
     .then((resultado) => {
       const repoResultado = mapToRepoObject(resultado);
